@@ -21,7 +21,9 @@ module.exports = {
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
-    contentBase: path.resolve(__dirname, './dist'),
+    static: {
+        directory: path.join(__dirname, "dist")
+    },
     hot: true,
   },
 };
