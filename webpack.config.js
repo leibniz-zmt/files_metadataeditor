@@ -1,6 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const buildMode = process.env.NODE_ENV
+const isDev = (buildMode === 'development')
+const appName = process.env.npm_package_name
+const appVersion = process.env.npm_package_version
+
+console.info('Building in', buildMode, appName, appVersion, '\n')
+
+
 module.exports = {
   entry: path.resolve(__dirname, './src/index.js'),
   module: {
@@ -26,5 +34,8 @@ module.exports = {
     },
     hot: true,
   },
-  devtool: 'source-map'
+  devtool: 'source-map',
+  optimization: {
+    minimize: !isDev
+},
 };

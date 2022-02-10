@@ -4,13 +4,14 @@ import { generateFilePath } from '@nextcloud/router'
 
 const title = 'React with Webpack and Babel'
 
-const script = document.querySelector('[nonce]')
-__webpack_require__.nc = script.nonce || script.getAttribute('nonce')
-__webpack_public_path__ = generateFilePath('webpack_test', '', 'js/')
-__webpack_nonce__ = btoa(OC.requestToken)
-
 // check if we're running in Nextcloud
-if ('OCA' in window) {
+if ('OC' in window) {
+
+  const script = document.querySelector('[nonce]')
+  __webpack_require__.nc = script.nonce || script.getAttribute('nonce')
+  __webpack_public_path__ = generateFilePath('webpack_test', '', 'js/')
+  __webpack_nonce__ = btoa(OC.requestToken)
+  
   $('#app-content').append('<div id=webpack_test></div>')
 
   ReactDOM.render(<div>{title}</div>, document.getElementById('webpack_test'))
@@ -27,4 +28,7 @@ if ('OCA' in window) {
     iconClass: 'icon-edit',
     type: OCA.Files.FileActions.TYPE_DROPDOWN, //
   })
+}
+else {
+  ReactDOM.render(<h1>{title}</h1>, document.getElementById('app'))
 }
