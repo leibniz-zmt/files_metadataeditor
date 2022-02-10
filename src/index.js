@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { generateFilePath } from '@nextcloud/router'
 
-const title = 'React with Webpack and Babel'
+import App from './ExampleForm'
 
 // check if we're running in Nextcloud
 if ('OC' in window) {
@@ -11,10 +11,10 @@ if ('OC' in window) {
   __webpack_require__.nc = script.nonce || script.getAttribute('nonce')
   __webpack_public_path__ = generateFilePath('webpack_test', '', 'js/')
   __webpack_nonce__ = btoa(OC.requestToken)
-  
+
   $('#app-content').append('<div id=webpack_test></div>')
 
-  ReactDOM.render(<div>{title}</div>, document.getElementById('webpack_test'))
+  // ReactDOM.render(<div>{title}</div>, document.getElementById('webpack_test'))
 
   alert('Running in Nextcloud!')
 
@@ -30,5 +30,5 @@ if ('OC' in window) {
   })
 }
 else {
-  ReactDOM.render(<h1>{title}</h1>, document.getElementById('app'))
+  ReactDOM.render( React.createElement(App, null), document.getElementById('app'))
 }
