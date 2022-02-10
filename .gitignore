@@ -1,0 +1,9 @@
+# Mac OS
+.DS_Store
+# Tests - auto-generated files
+/tests/coverage*
+/tests/clover.xml
+node_modules
+
+.vscode
+/vendor/

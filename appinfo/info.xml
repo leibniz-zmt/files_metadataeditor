@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+	<id>webpack_test</id>
+	<name>Webpack-React-Test</name>
+	<summary>Testing Webpack with React and Babel</summary>
+	<description></description>
+	<version>0.1.0</version>
+	<licence>agpl</licence>
+	<author>Joscha Schmiedt</author>
+	<namespace>WebpackTest</namespace>
+	<category>tools</category>
+	<website></website>
+	<bugs></bugs>
+	<repository type="git"></repository>
+	<dependencies>
+		<nextcloud min-version="20" max-version="24" />
+	</dependencies>
+</info>

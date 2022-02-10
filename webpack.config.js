@@ -16,14 +16,15 @@ module.exports = {
     extensions: ['*', '.js', '.jsx'],
   },
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, './js'),
     filename: 'bundle.js',
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
     static: {
-        directory: path.join(__dirname, "dist")
+        directory: path.join(__dirname, "js")
     },
     hot: true,
   },
+  devtool: 'source-map'
 };
