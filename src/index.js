@@ -16,19 +16,19 @@ if ('OC' in window) {
 
   // ReactDOM.render(<div>{title}</div>, document.getElementById('webpack_test'))
 
-  alert('Running in Nextcloud!')
+  // alert('Running in Nextcloud!')
 
   OCA.Files.fileActions.registerAction({
     name: 'webpack_test',
     displayName: 'Test Webpack and React',
     mime: 'application/json',
     filename: 'metadata.json',
-    actionHandler: () => alert('Tada'),
+    actionHandler: (filename, context) =>   ReactDOM.render( React.createElement(App, {filename: filename}), document.getElementById('webpack_test')),
     permissions: OC.PERMISSION_READ,
     iconClass: 'icon-edit',
     type: OCA.Files.FileActions.TYPE_DROPDOWN, //
   })
 }
 else {
-  ReactDOM.render( React.createElement(App, null), document.getElementById('app'))
+  ReactDOM.render( React.createElement(App, {filename: "Here's a filename"}), document.getElementById('app'))
 }

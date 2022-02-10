@@ -1,0 +1,138 @@
+{
+  "title": "Dataset",
+  "description": "",
+  "type": "object",
+
+  "properties": {
+    "title": { "type": "string", "description": "full dataset title" },
+
+    "authors": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/staff" },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+
+    "campaign": { "type": "string" },
+
+    "method": { "type": "string" },
+
+    "abstract": { "type": "string", "minLength": 80, "maxLength": 1000 },
+
+    "comment": { "type": "string" },
+
+    "license": {
+      "type": "string",
+      "enum": ["CC-BY", "CC-BY-SA", "CC0", "restricted access"]
+    },
+
+    "dataset_doi": {
+      "$ref": "#/$defs/doi",
+      "title": "Dataset DOI, e.g. 10.1594/PANGAEA.938740"
+    },
+
+    "related_to": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/doi" },
+      "title": "Related DOIs, e.g. 10.1000/182"
+    },
+
+    "keywords": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+
+    "event": {
+      "type": "object",
+      "properties": {
+        "datetime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "longitude": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180,
+          "description": "longitude in decimal degree"
+        },
+        "latitude": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90,
+          "description": "latitude in decimal degree"
+        },
+        "elevation": {
+          "type": "number",
+          "minimum": -10000,
+          "maximum": 20000,
+          "description": "elevation in m"
+        },
+        "geojson": {
+          "type": "string",
+          "title": "GeoJSON",
+          "pattern": "",
+          "description": "GeoJSON for complex geographic structures"
+        },
+        "location": {
+          "type": "string",
+          "description": "geographical location (e.g., North Sea; Espoo, Finland)"
+        },
+        "location_datetime_in_data": {
+          "type": "boolean",
+          "title": "Additional timepoints and locations in data",
+          "description": "Does the data contain additional information about timepoints and locations?"
+        }
+      },
+
+      "required": ["longitude", "latitude"]
+    },
+
+    "project": {
+      "title": "Project",
+      "description": "",
+      "type": "object",
+      "properties": {
+        "acronym": { "type": "string" },
+        "id": { "type": "string", "description": "ZMT Project ID" },
+        "name": { "type": "string", "description": "full project title" },
+        "type": {
+          "type": "string",
+          "enum": ["DFG", "EU", "BMBF", "national", "international", "ZMT"]
+        },
+        "coordinator": { "$ref": "#/$defs/staff" },
+        "institute": {
+          "type": "string",
+          "description": "place of coordination or project office",
+          "default": "Leibniz Centre for Tropical Marine Research (ZMT)"
+        },
+        "start_date": { "type": "string", "format": "date" },
+        "end_date": { "type": "string", "format": "date" },
+        "url": { "type": "string", "format": "uri" }
+      },
+      "required": ["acronym", "name", "url", "start_date", "end_date"]
+    }
+  },
+  "required": ["title", "authors", "abstract"],
+
+  "$defs": {
+    "staff": {
+      "type": "object",
+      "properties": {
+        "firstname": { "type": "string", "description": "First name" },
+        "lastname": { "type": "string" },
+        "affiliation": { "type": "string" },
+        "ORCID": {
+          "type": "string",
+          "description": "ORCID identifier as 16-digit number, e.g. 0000-0001-6233-1866",
+          "pattern": "^\\d{4}-\\d{4}-\\d{4}-\\d{4}$"
+        },
+        "email": { "type": "string", "format": "email" }
+      },
+      "required": ["lastname", "email"]
+    },
+    "doi": {
+      "type": "string",
+      "pattern": "(10[.][0-9]{4,}(?:[.][0-9]+)*/(?:(?![%\"#? ])\\S)+)"
+    }
+  }
+}
