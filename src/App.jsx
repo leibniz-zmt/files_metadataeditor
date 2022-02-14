@@ -17,38 +17,6 @@ import Dataset from './components/Dataset'
 import { themeOptions } from './themeOptions'
 
 /**
- * Load file contents through app API.
- * @constructor
- * @param {string} dir - directory name
- * @param {string} filename - filename
- */
-function loadFile(dir, filename, success) {
-  fetch(
-    generateUrl(
-      '/apps/webpack_test/ajax/loadfile?' +
-        new URLSearchParams({
-          filename: filename,
-          dir: dir,
-        })
-    ),
-    {
-      headers: {
-        requesttoken: OC.requestToken,
-      },
-    }
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.message) {
-        showError(data.message)
-        return null
-      }
-      // Call success callback
-      success(data.filecontents)
-    })
-}
-
-/**
  * Send the new file data back to the server
  */
 function saveFile(data, file, success, failure) {
@@ -119,7 +87,7 @@ function App(props) {
         throw response
       })
       .then((data) => {
-        setData(data.filecontents)
+        setData(data)
       })
       .catch((error) => {
         console.error('Error fetching schema: ', error.message)
@@ -130,17 +98,11 @@ function App(props) {
 
   let theme = createTheme(themeOptions)
 
-  useEffect(() => {
-    loadFile(props.context.dir, props.filename, setData), []
-  })
-
   let content
   if (loading) {
     content = <div className="spinner-border" role="status"></div>
   } else {
     content = <Dataset initialData={data} />
-    // content = <div className="spinner-border" role="status"></div>
-    // content = <p>{data}</p>
   }
   if (error) {
     showError(error)

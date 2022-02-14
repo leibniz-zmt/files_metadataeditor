@@ -27,6 +27,7 @@ use OC\HintException;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\DataResponse;
+use OCP\AppFramework\Http\JSONResponse;
 use OCP\Files\File;
 use OCP\Files\Folder;
 use OCP\Files\ForbiddenException;
@@ -97,24 +98,26 @@ class FileHandlingController extends Controller
 				if ($file->getSize() > $maxSize) {
 					return new DataResponse(['message' => (string)$this->l->t('This file is too big to be opened. Please download the file instead.')], Http::STATUS_BAD_REQUEST);
 				}
-				$fileContents = $file->getContent();
+				$fileContents = json_decode($file->getContent());
 				if ($fileContents !== false) {
-					$writable = $file->isUpdateable();
-					$mime = $file->getMimeType();
-					$mTime = $file->getMTime();
-					$encoding = mb_detect_encoding($fileContents . 'a', 'UTF-8, WINDOWS-1252, ISO-8859-15, ISO-8859-1, ASCII', true);
-					if ($encoding === '') {
-						// set default encoding if it couldn't be detected
-						$encoding = 'ISO-8859-15';
-					}
-					$fileContents = iconv($encoding, 'UTF-8', $fileContents);
-					return new DataResponse(
-						[
-							'filecontents' => $fileContents,
-							'writeable' => $writable,
-							'mime' => $mime,
-							'mtime' => $mTime
-						],
+					// $writable = $file->isUpdateable();
+					// $mime = $file->getMimeType();
+					// $mTime = $file->getMTime();
+					// $encoding = mb_detect_encoding($fileContents . 'a', 'UTF-8, WINDOWS-1252, ISO-8859-15, ISO-8859-1, ASCII', true);
+					// if ($encoding === '') {
+					// set default encoding if it couldn't be detected
+					// $encoding = 'ISO-8859-15';
+					// }
+					// $fileContents = iconv($encoding, 'UTF-8', $fileContents);
+					return new JSONResponse(
+						$fileContents,
+						// return new DataResponse(
+						// [
+						// 'filecontents' => $fileContents,
+						// 'writeable' => $writable,
+						// 'mime' => $mime,
+						// 'mtime' => $mTime
+						// ],
 						Http::STATUS_OK
 					);
 				} else {
