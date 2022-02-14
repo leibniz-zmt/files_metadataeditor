@@ -1,13 +1,12 @@
-const path = require('path');
-const webpack = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
 
 const buildMode = process.env.NODE_ENV
-const isDev = (buildMode === 'development')
+const isDev = buildMode === 'development'
 const appName = process.env.npm_package_name
 const appVersion = process.env.npm_package_version
 
-console.info('Building in', buildMode, appName, appVersion, '\n')
-
+console.info('Building', buildMode, appName, appVersion, '\n')
 
 module.exports = {
   entry: path.resolve(__dirname, './src/index.js'),
@@ -17,6 +16,19 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
+      },
+      {
+        test: /\.css$/i,
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+        ],
       },
     ],
   },
@@ -30,12 +42,12 @@ module.exports = {
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
     static: {
-        directory: path.join(__dirname, "js")
+      directory: path.join(__dirname, 'js'),
     },
     hot: true,
   },
   devtool: 'source-map',
   optimization: {
-    minimize: !isDev
-},
-};
+    minimize: !isDev,
+  },
+}

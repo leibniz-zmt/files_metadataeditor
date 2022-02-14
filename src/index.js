@@ -2,17 +2,19 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { generateFilePath } from '@nextcloud/router'
 
-import App from './ExampleForm'
+import App from './App'
+import Dataset from './components/Dataset'
+
+const containerId = 'webpack_test'
+
+$('#content').append('<div id=' + containerId + '></div>')
 
 // check if we're running in Nextcloud
 if ('OC' in window) {
-
   const script = document.querySelector('[nonce]')
   __webpack_require__.nc = script.nonce || script.getAttribute('nonce')
   __webpack_public_path__ = generateFilePath('webpack_test', '', 'js/')
   __webpack_nonce__ = btoa(OC.requestToken)
-
-  $('#app-content').append('<div id=webpack_test></div>')
 
   // ReactDOM.render(<div>{title}</div>, document.getElementById('webpack_test'))
 
@@ -23,12 +25,22 @@ if ('OC' in window) {
     displayName: 'Test Webpack and React',
     mime: 'application/json',
     filename: 'metadata.json',
-    actionHandler: (filename, context) =>   ReactDOM.render( React.createElement(App, {filename: filename}), document.getElementById('webpack_test')),
+    actionHandler: (filename, context) =>
+      ReactDOM.render(
+        React.createElement(App, {
+          filename: filename,
+          context: context,
+          containerId: containerId,
+        }),
+        document.getElementById(containerId)
+      ),
     permissions: OC.PERMISSION_READ,
     iconClass: 'icon-edit',
     type: OCA.Files.FileActions.TYPE_DROPDOWN, //
   })
-}
-else {
-  ReactDOM.render( React.createElement(App, {filename: "Here's a filename"}), document.getElementById('app'))
+} else {
+  ReactDOM.render(
+    React.createElement(Dataset),
+    document.getElementById(containerId)
+  )
 }
