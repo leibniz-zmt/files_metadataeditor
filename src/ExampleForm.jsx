@@ -21,6 +21,7 @@ export default function App(props) {
         renderers={materialRenderers}
         cells={materialCells}
         onChange={({ data, _errors }) => setData(data)}
+        validationMode="NoValidation"
       />
     </div>
   )
