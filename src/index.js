@@ -4,6 +4,7 @@ import { generateFilePath } from '@nextcloud/router'
 
 import App from './App'
 import Dataset from './Dataset'
+import './App.css'
 
 const containerId = 'webpack_test'
 
@@ -11,7 +12,6 @@ let contentTag = document.getElementById('content')
 let container = document.createElement('div')
 container?.setAttribute('id', containerId)
 contentTag?.append(container)
-// $('#content').append('<div id=' + containerId + '></div>')
 
 // check if we're running in Nextcloud
 if ('OC' in window) {
