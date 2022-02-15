@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const buildMode = process.env.NODE_ENV
 const isDev = buildMode === 'development'
@@ -18,28 +19,30 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
-        test: /\.css$/i,
-        exclude: /node_modules/,
+        test: /\.(sa|sc|c)ss$/i,
         use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-            },
-          },
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          // 'postcss-loader',
+          'sass-loader',
         ],
       },
     ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ['*', '.js', '.jsx', '.scss', '.css'],
   },
   output: {
     path: path.resolve(__dirname, './js'),
     filename: 'bundle.js',
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new MiniCssExtractPlugin({
+      filename: isDev ? '../css/[name].css' : '../css/[name].css',
+      chunkFilename: isDev ? '../css/[id].css' : '../css/[id].css',
+    }),
+  ],
   devServer: {
     static: {
       directory: path.join(__dirname, 'js'),

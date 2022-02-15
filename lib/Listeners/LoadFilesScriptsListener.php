@@ -32,7 +32,7 @@ class LoadFilesScriptsListener implements IEventListener
 {
 	public function handle(Event $event): void
 	{
-		Util::addStyle('webpack_test', 'style');
+		Util::addStyle('webpack_test', 'main');
 		Util::addScript('webpack_test', 'bundle', 'files');
 	}
 }
