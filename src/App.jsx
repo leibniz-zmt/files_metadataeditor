@@ -9,11 +9,11 @@ import Slide from '@mui/material/Slide'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import { showError } from '@nextcloud/dialogs'
+import '@nextcloud/dialogs/styles/toast.scss'
 import { generateUrl } from '@nextcloud/router'
 import React, { useEffect } from 'react'
-import ReactDOM from 'react-dom'
 import './App.css'
-import Dataset from './components/Dataset'
+import Dataset from './Dataset'
 import { themeOptions } from './themeOptions'
 
 /**
@@ -47,12 +47,47 @@ function saveFile(data, file, success, failure) {
     })
 }
 
+function loadFile(filename, dir, successFunc, failureFunc, finalFunc) {
+  fetch(
+    generateUrl(
+      '/apps/webpack_test/ajax/loadfile?' +
+        new URLSearchParams({
+          filename: filename,
+          dir: dir,
+        })
+    ),
+    {
+      headers: {
+        requesttoken: OC.requestToken,
+      },
+    }
+  )
+    .then((response) => {
+      if (response.ok) {
+        return response.json()
+      }
+      throw response
+    })
+    .then((data) => {
+      if ('dataset' in data) {
+        successFunc(data['dataset'])
+      } else {
+        throw 'JSON data does not contain a dataset object'
+      }
+    })
+    .catch((error) => {
+      showError(`Error loading file: ${filename}: ${error}`)
+      failureFunc()
+    })
+    .finally(() => finalFunc())
+}
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />
 })
 
 function App(props) {
-  const [open, setOpen] = React.useState(true)
+  const [open, setOpen] = React.useState(props.open)
   const [data, setData] = React.useState(null)
   const [error, setError] = React.useState(null)
   const [loading, setLoading] = React.useState(true)
@@ -62,39 +97,20 @@ function App(props) {
   }
   const handleClose = () => {
     setOpen(false)
-    ReactDOM.unmountComponentAtNode(document.getElementById(props.containerId))
+    // ReactDOM.unmountComponentAtNode(document.getElementById(props.containerId))
   }
 
+  // useEffect(() => setOpen(props.open), [props.open])
+
   useEffect(() => {
-    fetch(
-      generateUrl(
-        '/apps/webpack_test/ajax/loadfile?' +
-          new URLSearchParams({
-            filename: props.filename,
-            dir: props.context.dir,
-          })
-      ),
-      {
-        headers: {
-          requesttoken: OC.requestToken,
-        },
-      }
+    loadFile(
+      props.filename,
+      props.context.dir,
+      setData,
+      () => setError(true),
+      () => setLoading(false)
     )
-      .then((response) => {
-        if (response.ok) {
-          return response.json()
-        }
-        throw response
-      })
-      .then((data) => {
-        setData(data)
-      })
-      .catch((error) => {
-        console.error('Error fetching schema: ', error.message)
-        setError(error)
-      })
-      .finally(() => setLoading(false))
-  }, [props.filename])
+  }, [props.context.dir, props.filename])
 
   let theme = createTheme(themeOptions)
 
@@ -105,7 +121,6 @@ function App(props) {
     content = <Dataset initialData={data} />
   }
   if (error) {
-    showError(error)
     handleClose()
   }
 
@@ -135,11 +150,8 @@ function App(props) {
           </Button>
         </Toolbar>
       </AppBar>
-      <MuiThemeProvider theme={theme}>
-        {/* <Dataset data={data} /> ? !loading :{' '} */}
-        {/* <div className="spinner-border" role="status"></div> */}
-        {content}
-      </MuiThemeProvider>
+      {/* <MuiThemeProvider theme={theme}>{content}</MuiThemeProvider> */}
+      <div>{content}</div>
     </Dialog>
   )
 }

@@ -1,0 +1,106 @@
+{
+  "type": "Categorization",
+  "elements": [
+    {
+      "type": "Category",
+      "label": "Basic",
+      "elements": [
+        {
+          "type": "VerticalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/title"
+            },
+
+            {
+              "type": "Control",
+              "scope": "#/properties/abstract",
+              "options": {
+                "multi": true
+              }
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/comment"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/license"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/dataset_doi"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/related_to"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/keywords"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Authors",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/authors"
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Project",
+      "elements": [
+        {
+          "type": "VerticalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/project"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Event",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/event"
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Campaign",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/campaign"
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Method",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/method"
+        }
+      ]
+    }
+  ],
+  "options": {
+    "variant": "stepper"
+  }
+}

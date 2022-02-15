@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom'
 import { generateFilePath } from '@nextcloud/router'
 
 import App from './App'
-import Dataset from './components/Dataset'
+import Dataset from './Dataset'
 
 const containerId = 'webpack_test'
 
-$('#content').append('<div id=' + containerId + '></div>')
+let contentTag = document.getElementById('content')
+let container = document.createElement('div')
+container?.setAttribute('id', containerId)
+contentTag?.append(container)
+// $('#content').append('<div id=' + containerId + '></div>')
 
 // check if we're running in Nextcloud
 if ('OC' in window) {
@@ -16,10 +20,6 @@ if ('OC' in window) {
   __webpack_public_path__ = generateFilePath('webpack_test', '', 'js/')
   __webpack_nonce__ = btoa(OC.requestToken)
 
-  // ReactDOM.render(<div>{title}</div>, document.getElementById('webpack_test'))
-
-  // alert('Running in Nextcloud!')
-
   OCA.Files.fileActions.registerAction({
     name: 'webpack_test',
     displayName: 'Test Webpack and React',
@@ -27,11 +27,12 @@ if ('OC' in window) {
     filename: 'metadata.json',
     actionHandler: (filename, context) =>
       ReactDOM.render(
-        React.createElement(App, {
-          filename: filename,
-          context: context,
-          containerId: containerId,
-        }),
+        <App
+          filename={filename}
+          context={context}
+          containerId={containerId}
+          open={true}
+        />,
         document.getElementById(containerId)
       ),
     permissions: OC.PERMISSION_READ,
