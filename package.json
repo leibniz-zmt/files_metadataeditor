@@ -1,15 +1,15 @@
 {
   "name": "files_metadataeditor",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Nextcloud app to annotate a directory with research data with metadata",
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=development webpack serve --mode development",
     "build": "NODE_ENV=production webpack --config ./webpack.config.js --mode production",
     "dev": "NODE_ENV=development webpack --config ./webpack.config.js --mode development"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Joscha Schmiedt <joscha.schmiedt@leibniz-zmt.de>",
+  "license": "agpl",
   "devDependencies": {
     "@babel/core": "^7.17.2",
     "@babel/preset-env": "^7.16.11",

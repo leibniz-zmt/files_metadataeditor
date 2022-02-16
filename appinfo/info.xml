@@ -8,7 +8,7 @@
 	<licence>agpl</licence>
 	<author>Joscha Schmiedt</author>
 	<namespace>FilesMetadataEditor</namespace>
-	<category>tools</category>
+	<category>files</category>
 	<website></website>
 	<bugs></bugs>
 	<repository type="git"></repository>

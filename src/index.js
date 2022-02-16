@@ -6,7 +6,7 @@ import App from './App'
 import Dataset from './Dataset'
 import './App.css'
 
-const containerId = 'metadata_editor'
+const containerId = 'files_metadataeditor'
 
 let contentTag = document.getElementById('content')
 let container = document.createElement('div')
@@ -17,11 +17,11 @@ contentTag?.append(container)
 if ('OC' in window) {
   const script = document.querySelector('[nonce]')
   __webpack_require__.nc = script.nonce || script.getAttribute('nonce')
-  __webpack_public_path__ = generateFilePath('metadata_editor', '', 'js/')
+  __webpack_public_path__ = generateFilePath('files_metadataeditor', '', 'js/')
   __webpack_nonce__ = btoa(OC.requestToken)
 
   OCA.Files.fileActions.registerAction({
-    name: 'files_metadataeditor',
+    name: 'files_metadataedit',
     displayName: 'Edit folder metadata',
     mime: 'application/json',
     filename: 'metadata.json',

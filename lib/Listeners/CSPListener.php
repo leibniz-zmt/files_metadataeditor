@@ -38,7 +38,8 @@ class CSPListener implements IEventListener
 		$csp = new ContentSecurityPolicy();
 		$csp->addAllowedWorkerSrcDomain("'self'");
 		$csp->addAllowedScriptDomain('blob:');
-		$csp->allowEvalScript(true);
+		// FIXME: this should allow ajv form validation, but doesn't actually work, and is deprecated
+		// $csp->allowEvalScript(true);
 		$event->addPolicy($csp);
 	}
 }
