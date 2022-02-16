@@ -25,7 +25,7 @@ function saveFile(data, file, success, failure) {
   if (file.dir !== '/') {
     path = file.dir + '/' + file.name
   }
-  fetch(generateUrl('/apps/webpack_test/ajax/savefile'), {
+  fetch(generateUrl('/apps/files_metadataeditor/ajax/savefile'), {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ function saveFile(data, file, success, failure) {
 function loadFile(filename, dir, successFunc, failureFunc, finalFunc) {
   fetch(
     generateUrl(
-      '/apps/webpack_test/ajax/loadfile?' +
+      '/apps/files_metadataeditor/ajax/loadfile?' +
         new URLSearchParams({
           filename: filename,
           dir: dir,

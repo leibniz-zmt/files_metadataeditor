@@ -21,13 +21,13 @@ declare(strict_types=1);
  *
  */
 
-namespace OCA\WebpackTest\AppInfo;
+namespace OCA\FilesMetadataEditor\AppInfo;
 
 use OCA\Files\Event\LoadAdditionalScriptsEvent;
 use OCA\Files_Sharing\Event\BeforeTemplateRenderedEvent;
-use OCA\WebpackTest\Listeners\CSPListener;
-use OCA\WebpackTest\Listeners\LoadFilesScriptsListener;
-use OCA\WebpackTest\Listeners\LoadPublicScriptsListener;
+use OCA\FilesMetadataEditor\Listeners\CSPListener;
+use OCA\FilesMetadataEditor\Listeners\LoadFilesScriptsListener;
+use OCA\FilesMetadataEditor\Listeners\LoadPublicScriptsListener;
 use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
@@ -38,7 +38,7 @@ class Application extends App implements IBootstrap
 {
 	public function __construct(array $urlParams = [])
 	{
-		parent::__construct('webpack_test', $urlParams);
+		parent::__construct('files_metadataeditor', $urlParams);
 	}
 
 	public function register(IRegistrationContext $context): void

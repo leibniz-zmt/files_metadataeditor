@@ -21,7 +21,7 @@
  */
 
 
-namespace OCA\WebpackTest\Controller;
+namespace OCA\FilesMetadataEditor\Controller;
 
 use OC\HintException;
 use OCP\AppFramework\Controller;
@@ -168,7 +168,7 @@ class FileHandlingController extends Controller
 					// Then the file has changed since opening
 					$this->logger->error(
 						'File: ' . $path . ' modified since opening.',
-						['app' => 'webpack_test']
+						['app' => 'files_metadataeditor']
 					);
 					return new DataResponse(
 						['message' => $this->l->t('Cannot save file as it has been modified since opening.')],
@@ -198,7 +198,7 @@ class FileHandlingController extends Controller
 						// Not writeable!
 						$this->logger->error(
 							'User does not have permission to write to file: ' . $path,
-							['app' => 'webpack_test']
+							['app' => 'files_metadataeditor']
 						);
 						return new DataResponse(
 							['message' => $this->l->t('Insufficient permissions.')],
@@ -210,7 +210,7 @@ class FileHandlingController extends Controller
 				$this->logger->error('No file path supplied');
 				return new DataResponse(['message' => $this->l->t('File path not supplied.')], Http::STATUS_BAD_REQUEST);
 			} else {
-				$this->logger->error('No file mtime supplied', ['app' => 'webpack_test']);
+				$this->logger->error('No file mtime supplied', ['app' => 'files_metadataeditor']);
 				return new DataResponse(['message' => $this->l->t('File mtime not supplied.')], Http::STATUS_BAD_REQUEST);
 			}
 		} catch (HintException $e) {

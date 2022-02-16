@@ -21,7 +21,7 @@ declare(strict_types=1);
  *
  */
 
-namespace OCA\WebpackTest\Listeners;
+namespace OCA\FilesMetadataEditor\Listeners;
 
 use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;
@@ -31,7 +31,7 @@ class LoadPublicScriptsListener implements IEventListener
 {
 	public function handle(Event $event): void
 	{
-		Util::addScript('webpack_test', '../build/public-share');
-		Util::addStyle('webpack_test', 'public-share');
+		Util::addScript('files_metadataeditor', '../build/public-share');
+		Util::addStyle('files_metadataeditor', 'public-share');
 	}
 }

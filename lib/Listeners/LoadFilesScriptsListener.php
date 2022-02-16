@@ -21,7 +21,7 @@ declare(strict_types=1);
  *
  */
 
-namespace OCA\WebpackTest\Listeners;
+namespace OCA\FilesMetadataEditor\Listeners;
 
 use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;
@@ -32,7 +32,7 @@ class LoadFilesScriptsListener implements IEventListener
 {
 	public function handle(Event $event): void
 	{
-		Util::addStyle('webpack_test', 'main');
-		Util::addScript('webpack_test', 'bundle', 'files');
+		Util::addStyle('files_metadataeditor', 'main');
+		Util::addScript('files_metadataeditor', 'bundle', 'files');
 	}
 }

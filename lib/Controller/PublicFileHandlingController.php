@@ -22,7 +22,7 @@
  *
  */
 
-namespace OCA\WebpackTest\Controller;
+namespace OCA\FilesMetadataEditor\Controller;
 
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http;

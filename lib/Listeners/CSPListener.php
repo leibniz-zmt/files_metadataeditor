@@ -21,7 +21,7 @@ declare(strict_types=1);
  *
  */
 
-namespace OCA\WebpackTest\Listeners;
+namespace OCA\FilesMetadataEditor\Listeners;
 
 use OCP\AppFramework\Http\ContentSecurityPolicy;
 use OCP\EventDispatcher\Event;
