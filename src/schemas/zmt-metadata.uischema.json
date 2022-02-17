@@ -34,7 +34,8 @@
             },
             {
               "type": "Control",
-              "scope": "#/properties/related_to"
+              "scope": "#/properties/related_to",
+              "options": { "type": "HorizontalLayout" }
             },
             {
               "type": "Control",
@@ -44,22 +45,29 @@
         }
       ]
     },
+
     {
       "type": "Category",
       "label": "Authors",
       "elements": [
         {
-          "type": "Control",
-          "scope": "#/properties/authors"
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/authors"
+            }
+          ]
         }
       ]
     },
+
     {
       "type": "Category",
       "label": "Project",
       "elements": [
         {
-          "type": "VerticalLayout",
+          "type": "HorizontalLayout",
           "elements": [
             {
               "type": "Control",
