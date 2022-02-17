@@ -6,6 +6,10 @@ import App from './App'
 import Dataset from './Dataset'
 import './App.css'
 
+import { themeOptions } from './themeOptions'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+const theme = createTheme(themeOptions)
+
 const containerId = 'files_metadataeditor'
 
 let contentTag = document.getElementById('content')
@@ -27,12 +31,14 @@ if ('OC' in window) {
     filename: 'metadata.json',
     actionHandler: (filename, context) =>
       ReactDOM.render(
-        <App
-          filename={filename}
-          context={context}
-          containerId={containerId}
-          open={true}
-        />,
+        <ThemeProvider theme={theme}>
+          <App
+            filename={filename}
+            context={context}
+            containerId={containerId}
+            open={true}
+          />
+        </ThemeProvider>,
         document.getElementById(containerId)
       ),
     permissions: OC.PERMISSION_READ,
@@ -41,7 +47,9 @@ if ('OC' in window) {
   })
 } else {
   ReactDOM.render(
-    React.createElement(Dataset),
+    <ThemeProvider theme={theme}>
+      <Dataset />
+    </ThemeProvider>,
     document.getElementById(containerId)
   )
 }

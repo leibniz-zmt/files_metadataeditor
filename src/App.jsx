@@ -14,7 +14,6 @@ import { generateUrl } from '@nextcloud/router'
 import React, { useEffect } from 'react'
 import './App.css'
 import Dataset from './Dataset'
-import { themeOptions } from './themeOptions'
 
 /**
  * Send the new file data back to the server
@@ -111,8 +110,6 @@ function App(props) {
       () => setLoading(false)
     )
   }, [props.context.dir, props.filename])
-
-  let theme = createTheme(themeOptions)
 
   let content
   if (loading) {

@@ -11,12 +11,13 @@ export const themeOptions = {
     },
   },
   typography: {
-    fontSize: 13,
+    fontSize: 12,
     h6: {
       fontSize: '0.9rem',
+      fontWeight: 'bold',
     },
   },
-  spacing: 8,
+  spacing: 5,
   props: {
     MuiList: {
       dense: true,
@@ -72,20 +73,29 @@ export const themeOptions = {
     },
     MuiTableHead: {
       style: {
-        backgroundColor: '#d1e6f4',
+        backgroundColor: '#000000',
+      },
+    },
+    MuiTable: {
+      style: {
+        backgroundColor: '#000000',
       },
     },
   },
 
   components: {
-    MuiTab: {
+    MuiTable: {
+      defaultProps: {
+        size: 'small',
+      },
       styleOverrides: {
         root: {
-          '&.Mui-selected': {
-            backgroundColor: '#000000',
-            color: '#000000',
-            borderRadius: '25px',
-          },
+          backgroundColor: 'rgb(240,240,240)',
+          borderSpacing: 0,
+          borderStyle: 'dotted',
+          borderWidth: '1px',
+          borderColor: 'lightgray',
+          margin: '3px',
         },
       },
     },

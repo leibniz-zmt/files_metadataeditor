@@ -2,12 +2,13 @@
   display: flex;
   border-radius: 0.25em;
   margin-bottom: 1rem;
-  justify-content: center;
+  margin-top: 1rem;
+  justify-content: left;
   background-color: #cecece;
 }
 
 .form {
-  max-width: 1024px;
+  max-width: 1440px;
   margin: auto;
   border: 1px solid gray;
   padding: 2em;
