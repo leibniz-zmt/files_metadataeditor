@@ -100,9 +100,9 @@ class FileHandlingController extends Controller
 				}
 				$fileContents = json_decode($file->getContent());
 				if ($fileContents !== false) {
-					// $writable = $file->isUpdateable();
-					// $mime = $file->getMimeType();
-					// $mTime = $file->getMTime();
+					$writable = $file->isUpdateable();
+					$mime = $file->getMimeType();
+					$mTime = $file->getMTime();
 					// $encoding = mb_detect_encoding($fileContents . 'a', 'UTF-8, WINDOWS-1252, ISO-8859-15, ISO-8859-1, ASCII', true);
 					// if ($encoding === '') {
 					// set default encoding if it couldn't be detected
@@ -110,14 +110,14 @@ class FileHandlingController extends Controller
 					// }
 					// $fileContents = iconv($encoding, 'UTF-8', $fileContents);
 					return new JSONResponse(
-						$fileContents,
+						// $fileContents,
 						// return new DataResponse(
-						// [
-						// 'filecontents' => $fileContents,
-						// 'writeable' => $writable,
-						// 'mime' => $mime,
-						// 'mtime' => $mTime
-						// ],
+						[
+							'filecontents' => $fileContents,
+							'writeable' => $writable,
+							'mime' => $mime,
+							'mtime' => $mTime
+						],
 						Http::STATUS_OK
 					);
 				} else {

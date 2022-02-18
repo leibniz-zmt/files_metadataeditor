@@ -48,7 +48,7 @@ if ('OC' in window) {
 } else {
   ReactDOM.render(
     <ThemeProvider theme={theme}>
-      <Dataset />
+      <Dataset initialData={null} setData={() => {}} />
     </ThemeProvider>,
     document.getElementById(containerId)
   )

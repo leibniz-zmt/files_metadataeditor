@@ -13,6 +13,7 @@ export default function Dataset(props) {
 
   useEffect(() => {
     setDisplayDataAsString(JSON.stringify({ dataset: data }, null, 4))
+    props.setData(data)
   }, [data])
 
   return (
