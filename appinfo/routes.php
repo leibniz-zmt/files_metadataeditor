@@ -33,10 +33,5 @@ return [
 			'url' => '/ajax/savefile',
 			'verb' => 'PUT'
 		],
-		[
-			'name' => 'PublicFileHandling#load',
-			'url' => '/public/{token}',
-			'verb' => 'GET'
-		]
 	]
 ];

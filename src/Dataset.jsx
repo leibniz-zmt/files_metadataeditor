@@ -4,9 +4,8 @@ import { JsonForms } from '@jsonforms/react'
 import { materialRenderers, materialCells } from '@jsonforms/material-renderers'
 import './App.css'
 
-// import schema from './schemas/zmt-metadata.schema.json'
-import uischema from './schemas/zmt-metadata.uischema.json'
-import metadataSchema from './schemas/zmt-metadata.schema.json'
+import uischema from './schemas/metadata.uischema.json'
+import metadataSchema from './schemas/metadata.schema.json'
 
 export default function Dataset(props) {
   const [displayDataAsString, setDisplayDataAsString] = useState('')
