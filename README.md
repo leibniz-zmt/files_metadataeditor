@@ -1,4 +1,4 @@
-# Metadata Editor for Research Data
+# Metadata Editor for Research Data 🔬
 A Nextcloud app to annotate a research data folder with metadata
 
 ## Features
@@ -9,7 +9,11 @@ A Nextcloud app to annotate a research data folder with metadata
   which can be used for validating the input data or creating a data model, e.g.
   in a database
 - currently the schema is based on the metadata schema of the data publisher
-  [PANGAEA](https://www.pangaea.de)
+  [PANGAEA](https://www.pangaea.de) with input fields for
+  - 👨‍🔬👩‍🔬 authors
+  - 🧪🔎 sampling/measurement events 
+  - 🚢🛩 campaigns 
+  - 🩸🧬 method information
 
 To install the app, copy the folder into the `apps` subfolder of the Nextcloud
 folder and activate the app in the admin interface.
