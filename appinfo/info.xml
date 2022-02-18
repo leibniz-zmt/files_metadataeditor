@@ -3,15 +3,23 @@
 	<id>files_metadataeditor</id>
 	<name>Metadata Editor</name>
 	<summary>Annotate research data with metadata</summary>
-	<description></description>
+	<description>
+		<![CDATA[### Metadata for research data  🔬 in Nextcloud
+* add metadata to a folder as a JSON file 
+* edit metadata with web-forms
+* schema based on earth science publisher PANGAEA 
+		]]>
+	</description>
 	<version>0.1.0</version>
 	<licence>agpl</licence>
-	<author>Joscha Schmiedt</author>
+	<author mail="joscha.schmiedt@gmail.com">Joscha Schmiedt</author>
 	<namespace>FilesMetadataEditor</namespace>
 	<category>files</category>
-	<website></website>
-	<bugs></bugs>
-	<repository type="git"></repository>
+	<website>https://github.com/leibniz-zmt/files_metadataeditor</website>
+	<bugs>https://github.com/leibniz-zmt/files_metadataeditor/issues</bugs>
+	<repository type="git">https://github.com/leibniz-zmt/files_metadataeditor.git</repository>
+	<screenshot>https://raw.githubusercontent.com/leibniz-zmt/files_metadataeditor/main/img/screenshot_editor.png</screenshot>
+	<screenshot>https://raw.githubusercontent.com/leibniz-zmt/files_metadataeditor/main/img/screenshot_menu.png</screenshot>
 	<dependencies>
 		<nextcloud min-version="20" max-version="24" />
 	</dependencies>
