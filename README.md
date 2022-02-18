@@ -1,6 +1,7 @@
 # Metadata Editor for Research Data 🔬
 A Nextcloud app to annotate a research data folder with metadata
 
+![](/img/screenshot_editor.png)
 ## Features
 - add metadata as a JSON file ( `metadata.json`) for a folder with scientific
   data from within the Nextcloud file browser
@@ -32,6 +33,10 @@ documentation](https://docs.nextcloud.com/server/latest/developer_manual)
 
 
 ### Developing React input forms
+Before working on the Javascript part of the app, npm packages have to be installed with 
+```
+npm install
+```
 The component for entering the data can be developed without a running Nextcloud
 server using 
 ```
