@@ -1,114 +1,167 @@
 {
-  "type": "Categorization",
-  "elements": [
-    {
-      "type": "Category",
-      "label": "Basic",
-      "elements": [
-        {
-          "type": "VerticalLayout",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/title"
-            },
+	"type": "Categorization",
+	"elements": [
+		{
+			"type": "Category",
+			"label": "Basic",
+			"elements": [
+				{
+					"type": "VerticalLayout",
+					"elements": [
+						{
+							"type": "Control",
+							"scope": "#/properties/title"
+						},
 
-            {
-              "type": "Control",
-              "scope": "#/properties/abstract",
-              "options": {
-                "multi": true
-              }
-            },
-            {
-              "type": "Control",
-              "scope": "#/properties/comment"
-            },
-            {
-              "type": "Control",
-              "scope": "#/properties/license"
-            },
-            {
-              "type": "Control",
-              "scope": "#/properties/dataset_doi"
-            },
-            {
-              "type": "Control",
-              "scope": "#/properties/related_to",
-              "options": { "type": "HorizontalLayout" }
-            },
-            {
-              "type": "Control",
-              "scope": "#/properties/keywords"
-            }
-          ]
-        }
-      ]
-    },
+						{
+							"type": "Control",
+							"scope": "#/properties/abstract",
+							"options": {
+								"multi": true
+							}
+						},
+						{
+							"type": "Control",
+							"scope": "#/properties/comment"
+						},
+						{
+							"type": "Control",
+							"scope": "#/properties/license"
+						},
+						{
+							"type": "Control",
+							"scope": "#/properties/dataset_doi"
+						},
+						{
+							"type": "Control",
+							"scope": "#/properties/related_to",
+							"options": { "type": "HorizontalLayout" }
+						},
+						{
+							"type": "Control",
+							"scope": "#/properties/keywords"
+						}
+					]
+				}
+			]
+		},
 
-    {
-      "type": "Category",
-      "label": "Authors",
-      "elements": [
-        {
-          "type": "HorizontalLayout",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/authors"
-            }
-          ]
-        }
-      ]
-    },
+		{
+			"type": "Category",
+			"label": "Authors",
+			"elements": [
+				{
+					"type": "HorizontalLayout",
+					"elements": [
+						{
+							"type": "Control",
+							"scope": "#/properties/authors"
+						}
+					]
+				}
+			]
+		},
 
-    {
-      "type": "Category",
-      "label": "Project",
-      "elements": [
-        {
-          "type": "HorizontalLayout",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/project"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "Category",
-      "label": "Event",
-      "elements": [
-        {
-          "type": "Control",
-          "scope": "#/properties/event"
-        }
-      ]
-    },
-    {
-      "type": "Category",
-      "label": "Campaign",
-      "elements": [
-        {
-          "type": "Control",
-          "scope": "#/properties/campaign"
-        }
-      ]
-    },
-    {
-      "type": "Category",
-      "label": "Method",
-      "elements": [
-        {
-          "type": "Control",
-          "scope": "#/properties/method"
-        }
-      ]
-    }
-  ],
-  "options": {
-    "variant": "stepper"
-  }
+		{
+			"type": "Category",
+			"label": "Project",
+			"elements": [
+				{
+					"type": "HorizontalLayout",
+					"elements": [
+						{
+							"type": "VerticalLayout",
+							"elements": [
+								{
+									"type": "Control",
+									"scope": "#/properties/project/properties/name"
+								},
+								{
+									"type": "Control",
+									"scope": "#/properties/project/properties/acronym"
+								},
+								{
+									"type": "Control",
+									"scope": "#/properties/project/properties/id"
+								},
+								{
+									"type": "Control",
+									"scope": "#/properties/project/properties/type"
+								},
+								{
+									"type": "Control",
+									"scope": "#/properties/project/properties/institute"
+								},
+								{
+									"type": "Control",
+									"scope": "#/properties/project/properties/start_date"
+								},
+								{
+									"type": "Control",
+									"scope": "#/properties/project/properties/end_date"
+								},
+								{
+									"type": "Control",
+									"scope": "#/properties/project/properties/url"
+								}
+							]
+						},
+						{
+							"type": "VerticalLayout",
+							"elements": [
+								{
+									"type": "Control",
+									"scope": "#/properties/project/properties/coordinator"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "Category",
+			"label": "Events",
+			"elements": [
+				{
+					"type": "Control",
+					"scope": "#/properties/events",
+					"options": {
+						"detail": "REGISTERED"
+					}
+				},
+				{
+					"type": "Control",
+					"scope": "#/properties/events_in_data"
+				},
+				{
+					"type": "Control",
+					"scope": "#/properties/events_geojson"
+				}
+			]
+		},
+		{
+			"type": "Category",
+			"label": "Campaign",
+			"elements": [
+				{
+					"type": "Control",
+					"scope": "#/properties/campaign"
+				}
+			]
+		},
+		{
+			"type": "Category",
+			"label": "Method",
+			"elements": [
+				{
+					"type": "Control",
+					"scope": "#/properties/method"
+				}
+			]
+		}
+	],
+	"options": {
+		"variant": "stepper"
+	}
 }
