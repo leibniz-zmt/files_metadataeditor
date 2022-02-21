@@ -1,38 +1,41 @@
-import React, { useState, useEffect } from 'react'
+import { materialCells, materialRenderers } from '@jsonforms/material-renderers'
 import { JsonForms } from '@jsonforms/react'
-// import { dump } from 'js-yaml'
-import { materialRenderers, materialCells } from '@jsonforms/material-renderers'
+import PropTypes from 'prop-types'
+import React, { useEffect, useState } from 'react'
 import './App.css'
-
-import uischema from './schemas/metadata.uischema.json'
 import metadataSchema from './schemas/metadata.schema.json'
+import uischema from './schemas/metadata.uischema.json'
 
 export default function Dataset(props) {
-  const [displayDataAsString, setDisplayDataAsString] = useState('')
-  const [data, setData] = useState(props.initialData)
+	const [displayDataAsString, setDisplayDataAsString] = useState('')
+	const [data, setData] = useState(props.initialData)
 
-  useEffect(() => {
-    setDisplayDataAsString(JSON.stringify({ dataset: data }, null, 4))
-    props.setData(data)
-  }, [data])
+	useEffect(() => {
+		setDisplayDataAsString(JSON.stringify({ dataset: data }, null, 4))
+		props.setData(data)
+	}, [data])
 
-  return (
-    <div className="form">
-      <JsonForms
-        schema={metadataSchema}
-        uischema={uischema}
-        data={data}
-        renderers={materialRenderers}
-        cells={materialCells}
-        onChange={({ data, errors }) => {
-          return setData(data)
-        }}
-        validationMode="NoValidation"
-      />
+	return (
+		<div className="form">
+			<JsonForms
+				schema={metadataSchema}
+				uischema={uischema}
+				data={data}
+				renderers={materialRenderers}
+				cells={materialCells}
+				onChange={({ data }) => {
+					return setData(data)
+				}}
+				validationMode="NoValidation"
+			/>
 
-      <div className="dataContent">
-        <pre id="datasetdata">{displayDataAsString}</pre>
-      </div>
-    </div>
-  )
+			<div className="dataContent">
+				<pre id="datasetdata">{displayDataAsString}</pre>
+			</div>
+		</div>
+	)
+}
+Dataset.propTypes = {
+	initialData: PropTypes.object,
+	setData: PropTypes.func,
 }
