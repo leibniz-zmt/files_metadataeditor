@@ -59,13 +59,15 @@ export default function App(props) {
 
 	return (
 		<Dialog
-			fullScreen
+			fullScreen={true}
 			open={open}
 			onClose={handleClose}
-			style={{ zIndex: 3000 }} // Nextcloud header is 2000
+			style={{ zIndex: 2001 }} // Nextcloud header is 2000
 			TransitionComponent={Transition}
+			id={'metadataeditor'}
+			className={'remove-all-styles'}
 		>
-			<AppBar sx={{ position: 'relative' }}>
+			<AppBar>
 				<Toolbar>
 					<IconButton
 						edge="start"
@@ -87,7 +89,7 @@ export default function App(props) {
 					</Button>
 				</Toolbar>
 			</AppBar>
-			<div>{content}</div>
+			{content}
 		</Dialog>
 	)
 }

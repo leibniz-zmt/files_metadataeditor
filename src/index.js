@@ -6,10 +6,18 @@ import App from './App'
 import './App.css'
 import Dataset from './Dataset'
 import { themeOptions } from './themeOptions'
-
-const theme = createTheme(themeOptions)
+import CloseIcon from '@mui/icons-material/Close'
+import AppBar from '@mui/material/AppBar'
+import Button from '@mui/material/Button'
+import Dialog from '@mui/material/Dialog'
+import IconButton from '@mui/material/IconButton'
+import Toolbar from '@mui/material/Toolbar'
+import Typography from '@mui/material/Typography'
+import CssBaseline from '@mui/material/CssBaseline'
 
 const containerId = 'files_metadataeditor'
+
+// $(document).ready($('#content').append('<div id=files_metadataeditor></div>'))
 
 let contentTag = document.getElementById('content')
 let container = document.createElement('div')
@@ -32,6 +40,8 @@ if ('OC' in window) {
 	__webpack_nonce__ = btoa(OC.requestToken)
 
 	const renderEditor = (filename, context) => {
+		const theme = createTheme(themeOptions)
+
 		ReactDOM.render(
 			<ThemeProvider theme={theme}>
 				<App
@@ -85,9 +95,31 @@ if ('OC' in window) {
 	OC.Plugins.register('OCA.Files.NewFileMenu', newFileMenuPlugin)
 } else {
 	// Render only Dataset JSONForms
+	const theme = createTheme(themeOptions)
+
 	ReactDOM.render(
 		<ThemeProvider theme={theme}>
-			<Dataset initialData={null} setData={() => {}} />
+			<Dialog
+				fullScreen
+				open={true}
+				style={{ zIndex: 2001 }} // Nextcloud header is 2000
+				id={'metadataeditor'}
+			>
+				<AppBar sx={{ position: 'relative' }}>
+					<Toolbar>
+						<IconButton edge="start" color="inherit" aria-label="close">
+							<CloseIcon />
+						</IconButton>
+						<Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+							{'metadata.json'}
+						</Typography>
+						<Button autoFocus color="inherit" onClick={() => {}}>
+							save
+						</Button>
+					</Toolbar>
+				</AppBar>
+				<Dataset initialData={null} setData={() => {}} />
+			</Dialog>
 		</ThemeProvider>,
 		document.getElementById(containerId)
 	)

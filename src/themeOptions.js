@@ -44,7 +44,7 @@ export const themeOptions = {
 		},
 		MuiList: {
 			defaultProps: {
-				dense: false,
+				dense: true,
 			},
 		},
 		MuiFormControl: {

@@ -1,5 +1,6 @@
 import { materialCells, materialRenderers } from '@jsonforms/material-renderers'
 import { JsonForms } from '@jsonforms/react'
+// import { createAjv } from '@jsonforms/core'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import './App.css'
@@ -15,8 +16,10 @@ export default function Dataset(props) {
 		props.setData(data)
 	}, [data])
 
+	// const handleDefaultsAjv = createAjv({ useDefaults: true })
+
 	return (
-		<div className="form">
+		<div id="metadataform">
 			<JsonForms
 				schema={metadataSchema}
 				uischema={uischema}

@@ -1,23 +1,70 @@
 .dataContent {
-  display: flex;
-  border-radius: 0.25em;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  justify-content: left;
-  background-color: #cecece;
+	display: block;
+	border-radius: 0.25em;
+	margin-bottom: 1rem;
+	margin-top: 1rem;
+	justify-content: left;
+	background-color: #cecece;
+	font-family: 'Courier New', Courier, monospace;
 }
 
-.form {
-  max-width: 1440px;
-  margin: auto;
-  border: 1px solid gray;
-  padding: 2em;
+.MuiAutocomplete-popper {
+	z-index: 2002 !important;
+}
+
+#metadataform {
+	max-width: 1440px;
+	min-width: 600px;
+	margin-top: 3rem;
+	margin-left: 1rem;
+	margin-right: 1rem;
+	border: 1px solid gray;
+	padding: 2em;
+	z-index: 1000;
+}
+
+/* heighten z-index of our dialogs above Nextloud (2000) */
+#metadataeditor + div[role='dialog'] {
+	z-index: 2002;
 }
 
 #datasetdata {
-  white-space: -moz-pre-wrap;
-  white-space: -o-pre-wrap;
-  word-wrap: break-word;
-  white-space: pre-wrap;
-  padding: 1em;
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+	white-space: pre-wrap;
+	padding: 1em;
 }
+
+#metadataeditor button {
+	font-size: 13px;
+	background-color: none;
+	color: var(--color-main-text);
+	border: 1px solid var(--color-border-dark);
+	outline: none;
+	cursor: text;
+	font-weight: normal;
+	border-radius: var(--border-radius-pill);
+}
+
+#metadataeditor .MuiStepper-horizontal {
+	margin-bottom: 1em;
+}
+
+/* override Nextcloud border of input elements */
+#metadataeditor input {
+	border: 0px;
+}
+
+/* override Nextcloud button stylings for date picker, date picker is outside of #metadataeditor */
+div.MuiCalendarPicker-root button {
+	width: 36px;
+	font-size: 13px;
+	background-color: transparent;
+	height: 36px;
+	padding: 0px;
+	border: 0px;
+	font-weight: normal;
+}
+
+/* a86f-dcdb-server.css | http://localhost:8210/index.php/css/core/a86f-dcdb-server.css?v=b92d206521717ac032f8aa58d3c7ff2f- */
