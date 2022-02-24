@@ -35,18 +35,18 @@ documentation](https://docs.nextcloud.com/server/latest/developer_manual)
 ### Developing React input forms
 Before working on the Javascript part of the app, npm packages have to be installed with 
 ```
-npm install
+  npm install
 ```
 The component for entering the data can be developed without a running Nextcloud
 server using 
 ```
-    npm start
+  npm start
 ```
-and opening the development server at https://localhost:8080. To build a deployable Javascript bundle use
+and opening the development server at https://localhost:8080. To build a deployable Javascript bundle in `js/` use
 ```
-    npm run dev
+  npm run dev
 ```
-for a non-minified version or
+for a non-minified development version or
 ```
     npm run build
 ```
