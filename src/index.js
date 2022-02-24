@@ -1,4 +1,11 @@
+import CloseIcon from '@mui/icons-material/Close'
+import AppBar from '@mui/material/AppBar'
+import Button from '@mui/material/Button'
+import Dialog from '@mui/material/Dialog'
+import IconButton from '@mui/material/IconButton'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
+import Toolbar from '@mui/material/Toolbar'
+import Typography from '@mui/material/Typography'
 import { generateFilePath } from '@nextcloud/router'
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -6,18 +13,8 @@ import App from './App'
 import './App.css'
 import Dataset from './Dataset'
 import { themeOptions } from './themeOptions'
-import CloseIcon from '@mui/icons-material/Close'
-import AppBar from '@mui/material/AppBar'
-import Button from '@mui/material/Button'
-import Dialog from '@mui/material/Dialog'
-import IconButton from '@mui/material/IconButton'
-import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
-import CssBaseline from '@mui/material/CssBaseline'
 
 const containerId = 'files_metadataeditor'
-
-// $(document).ready($('#content').append('<div id=files_metadataeditor></div>'))
 
 let contentTag = document.getElementById('content')
 let container = document.createElement('div')
@@ -29,7 +26,7 @@ const generateToken = (size) =>
 		.map(() => Math.floor(Math.random() * 16).toString(16))
 		.join('')
 
-// if we're running in Nextcloud register and render App
+// if we're running in Nextcloud, register and render App
 if ('OC' in window) {
 	const script = document.querySelector('[nonce]')
 	// eslint-disable-next-line no-undef
@@ -94,7 +91,7 @@ if ('OC' in window) {
 	}
 	OC.Plugins.register('OCA.Files.NewFileMenu', newFileMenuPlugin)
 } else {
-	// Render only Dataset JSONForms
+	// Render for testing React component
 	const theme = createTheme(themeOptions)
 
 	ReactDOM.render(

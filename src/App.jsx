@@ -8,11 +8,11 @@ import Slide from '@mui/material/Slide'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import '@nextcloud/dialogs/styles/toast.scss'
+import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import './App.css'
 import Dataset from './Dataset'
 import { loadFile, saveFile } from './loadsave'
-import PropTypes from 'prop-types'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
 	return <Slide direction="up" ref={ref} {...props} />
