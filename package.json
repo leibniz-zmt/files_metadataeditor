@@ -1,6 +1,6 @@
 {
 	"name": "files_metadataeditor",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "A Nextcloud app to annotate a directory with research data with metadata",
 	"main": "index.js",
 	"scripts": {

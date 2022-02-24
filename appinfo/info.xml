@@ -10,7 +10,7 @@
 * schema based on earth science publisher PANGAEA 
 		]]>
 	</description>
-	<version>0.1.0</version>
+	<version>0.1.1</version>
 	<licence>agpl</licence>
 	<author mail="joscha.schmiedt@gmail.com">Joscha Schmiedt</author>
 	<namespace>FilesMetadataEditor</namespace>
