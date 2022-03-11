@@ -4,7 +4,7 @@ import { JsonForms } from '@jsonforms/react'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import './App.css'
-import metadataSchema from './schemas/metadata.schema.json'
+import metadataSchema from './schemas/zmt-metadata-schema/schemas/dataset.schema.json'
 import uischema from './schemas/metadata.uischema.json'
 
 export default function Dataset(props) {
