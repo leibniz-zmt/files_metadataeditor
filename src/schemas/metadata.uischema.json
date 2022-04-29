@@ -34,12 +34,15 @@
 						},
 						{
 							"type": "Control",
-							"scope": "#/properties/related_to",
+							"scope": "#/properties/related_to_dois",
+							"label": "Related DOIs, e.g. publications/datasets",
+
 							"options": { "type": "HorizontalLayout" }
 						},
 						{
 							"type": "Control",
-							"scope": "#/properties/keywords"
+							"label": "Keywords",
+							"scope": "#/properties/Keyword"
 						}
 					]
 				}
@@ -74,19 +77,15 @@
 							"elements": [
 								{
 									"type": "Control",
-									"scope": "#/properties/project/properties/name"
+									"scope": "#/properties/project/properties/full_name"
 								},
 								{
 									"type": "Control",
-									"scope": "#/properties/project/properties/acronym"
+									"scope": "#/properties/project/properties/project_id"
 								},
 								{
 									"type": "Control",
-									"scope": "#/properties/project/properties/id"
-								},
-								{
-									"type": "Control",
-									"scope": "#/properties/project/properties/type"
+									"scope": "#/properties/project/properties/project_type"
 								},
 								{
 									"type": "Control",
@@ -111,7 +110,7 @@
 							"elements": [
 								{
 									"type": "Control",
-									"scope": "#/properties/project/properties/coordinator"
+									"scope": "#/properties/project/properties/coordinators"
 								}
 							]
 						}
@@ -125,7 +124,7 @@
 			"elements": [
 				{
 					"type": "Control",
-					"scope": "#/properties/events",
+					"scope": "#/properties/Event",
 					"options": {
 						"detail": "REGISTERED"
 					}
@@ -136,27 +135,7 @@
 				},
 				{
 					"type": "Control",
-					"scope": "#/properties/events_geojson"
-				}
-			]
-		},
-		{
-			"type": "Category",
-			"label": "Campaign",
-			"elements": [
-				{
-					"type": "Control",
-					"scope": "#/properties/campaign"
-				}
-			]
-		},
-		{
-			"type": "Category",
-			"label": "Method",
-			"elements": [
-				{
-					"type": "Control",
-					"scope": "#/properties/method"
+					"scope": "#/properties/geojson"
 				}
 			]
 		}
