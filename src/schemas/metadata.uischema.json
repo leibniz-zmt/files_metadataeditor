@@ -10,7 +10,8 @@
 					"elements": [
 						{
 							"type": "Control",
-							"scope": "#/properties/title"
+							"scope": "#/properties/title",
+							"label": "Dataset title"
 						},
 
 						{
@@ -30,7 +31,8 @@
 						},
 						{
 							"type": "Control",
-							"scope": "#/properties/dataset_doi"
+							"scope": "#/properties/dataset_doi",
+							"label": "Dataset DOI"
 						},
 						{
 							"type": "Control",
@@ -77,7 +79,14 @@
 							"elements": [
 								{
 									"type": "Control",
-									"scope": "#/properties/project/properties/full_name"
+									"scope": "#/properties/project/properties/name",
+									"label": "Project acronym"
+								},
+								{
+									"type": "Control",
+									"scope": "#/properties/project/properties/full_name",
+									"label": "Full project name"
+
 								},
 								{
 									"type": "Control",
