@@ -13,7 +13,11 @@
 							"scope": "#/properties/title",
 							"label": "Dataset title"
 						},
-
+						{
+							"type": "Control",
+							"scope": "#/properties/year_created",
+							"label": "Year"
+						},
 						{
 							"type": "Control",
 							"scope": "#/properties/abstract",
@@ -28,6 +32,10 @@
 						{
 							"type": "Control",
 							"scope": "#/properties/license"
+						},
+						{
+							"type": "Control",
+							"scope": "#/properties/access_restrictions"
 						},
 						{
 							"type": "Control",
@@ -60,7 +68,10 @@
 					"elements": [
 						{
 							"type": "Control",
-							"scope": "#/properties/authors"
+							"scope": "#/properties/authors",
+							"options": {
+										"detail": "REGISTERED"
+							}
 						}
 					]
 				}
@@ -94,7 +105,18 @@
 								},
 								{
 									"type": "Control",
-									"scope": "#/properties/project/properties/project_type"
+									"scope": "#/properties/project/properties/funding_agency"
+								},
+								{
+									"type": "Control",
+									"scope": "#/properties/project/properties/specify_funding",
+									"rule": {
+									  "effect": "HIDE",
+									  "condition": {
+									    "scope": "#/properties/project/properties/funding_agency",
+									    "schema": { "enum": ["DFG (national)", "BMBF (national)", "BMZ (national)", "EU - Horizon Europe", "internal (ZMT)"] }
+									  }
+									}
 								},
 								{
 									"type": "Control",
@@ -119,7 +141,10 @@
 							"elements": [
 								{
 									"type": "Control",
-									"scope": "#/properties/project/properties/coordinators"
+									"scope": "#/properties/project/properties/coordinators",
+									"options": {
+										"detail": "GENERATED"
+									}
 								}
 							]
 						}
