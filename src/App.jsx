@@ -1,4 +1,3 @@
-'use strict'
 import CloseIcon from '@mui/icons-material/Close'
 import AppBar from '@mui/material/AppBar'
 import Button from '@mui/material/Button'
