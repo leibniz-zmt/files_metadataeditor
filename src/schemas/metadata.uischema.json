@@ -47,12 +47,15 @@
 							"scope": "#/properties/related_to_dois",
 							"label": "Related DOIs, e.g. publications/datasets",
 
-							"options": { "type": "HorizontalLayout" }
+							"options": { "detail": "REGISTERED" }
 						},
 						{
 							"type": "Control",
 							"label": "Keywords",
-							"scope": "#/properties/Keyword"
+							"scope": "#/properties/Keyword",
+							"options": {
+								"detail": "REGISTERED"
+							}
 						}
 					]
 				}
