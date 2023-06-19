@@ -112,14 +112,7 @@
 								},
 								{
 									"type": "Control",
-									"scope": "#/properties/project/properties/specify_funding",
-									"rule": {
-									  "effect": "HIDE",
-									  "condition": {
-									    "scope": "#/properties/project/properties/funding_agency",
-									    "schema": { "enum": ["DFG (national)", "BMBF (national)", "BMZ (national)", "EU - Horizon Europe", "internal (ZMT)"] }
-									  }
-									}
+									"scope": "#/properties/project/properties/specify_funding"
 								},
 								{
 									"type": "Control",
