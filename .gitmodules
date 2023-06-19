@@ -1,4 +1,4 @@
 [submodule "src/schemas/zmt-metadata-schema"]
 	path = src/schemas/zmt-metadata-schema
 	url = https://github.com/leibniz-zmt/zmt-metadata-schema.git
-	branch = updated_schema
+	branch = dev
