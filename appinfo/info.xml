@@ -21,6 +21,6 @@
 	<screenshot>https://raw.githubusercontent.com/leibniz-zmt/files_metadataeditor/main/img/screenshot_editor.png</screenshot>
 	<screenshot>https://raw.githubusercontent.com/leibniz-zmt/files_metadataeditor/main/img/screenshot_menu.png</screenshot>
 	<dependencies>
-		<nextcloud min-version="20" max-version="24" />
+		<nextcloud min-version="20" max-version="28" />
 	</dependencies>
 </info>
