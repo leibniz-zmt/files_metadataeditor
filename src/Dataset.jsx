@@ -29,7 +29,7 @@ export default function Dataset(props) {
 				onChange={({ data }) => {
 					return setData(data)
 				}}
-				validationMode="ValidateAndShow"
+				validationMode="NoValidation"
 			/>
 
 			<div className="dataContent">
